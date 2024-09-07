@@ -4,6 +4,9 @@ import java.util.Comparator;
 
 import modelos.FechaFestiva;
 
+//1. MES
+//Usando if anidados para llegar al resultado. 
+
 public class ComparadorPorDIa implements Comparator<FechaFestiva> {
 
 	@Override

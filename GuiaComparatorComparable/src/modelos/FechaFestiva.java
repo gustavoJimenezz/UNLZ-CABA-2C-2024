@@ -50,7 +50,7 @@ public class FechaFestiva implements Comparable<FechaFestiva> {
 	
 	@Override
 	public String toString() {
-		return "FechaFestiva [dia=" + dia + ", mes=" + mes + ", nombre=" + nombre + ", fanatismo=" + fanatismo + "]";
+		return "FechaFestiva [dia=" + dia + ", mes=" + mes + ", nombre=" + nombre + ", fanatismo=" + fanatismo + ", dias totales=" + this.getDiasTotales() + "]";
 	}
 	
 //	3. METODOS PARTICULARES
