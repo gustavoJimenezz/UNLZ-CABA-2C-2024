@@ -8,7 +8,7 @@ public class ComparadorPorFanatismo implements Comparator<FechaFestiva>{
 
 	@Override
 	public int compare(FechaFestiva f1, FechaFestiva f2) {
-		return Double.compare(f1.getFanatismo(), f2.getFanatismo());
+		return Double.compare(f2.getFanatismo(), f1.getFanatismo());
 	}
 
 	

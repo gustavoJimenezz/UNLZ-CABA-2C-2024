@@ -2,6 +2,7 @@ package mains;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 import comparators.ComparadorPorDIa;
 import comparators.ComparadorPorFanatismo;
@@ -35,7 +36,7 @@ public class Main {
         festividades.add(new FechaFestiva(14, 2, "San Valentín", 0.6));
         festividades.add(new FechaFestiva(8, 3, "Día Internacional de la Mujer", 0.6));
         festividades.add(new FechaFestiva(1, 5, "Día del Trabajo", 0.5));
-        festividades.add(new FechaFestiva(4, 4, "Pascua", 0.6));
+        festividades.add(new FechaFestiva(1, 4, "Pascua", 0.6));
         festividades.add(new FechaFestiva(10, 2, "Año Nuevo Chino", 0.5));
         festividades.add(new FechaFestiva(22, 4, "Día de la Tierra", 0.7)); 
         festividades.add(new FechaFestiva(30, 7, "Día de la Amistad", 0.5));
@@ -45,8 +46,9 @@ public class Main {
         
         ComparadorPorNombre comPorNombre = new ComparadorPorNombre();
         ComparadorPorDIa comPorDia = new ComparadorPorDIa();
-        ComparadorPorFanatismo comPorFan = new ComparadorPorFanatismo();
         ComparadorPorMes comPorMes = new ComparadorPorMes();
+        Comparator<FechaFestiva> comPorFanReversed = new ComparadorPorFanatismo().reversed();
+        Comparator<FechaFestiva> comPOrDiaYMes = comPorDia.thenComparing(comPorMes);
         
         System.out.println("------------------------------------------");
         System.out.println("2. Mostrar el listado completo de fechas.");
@@ -82,7 +84,7 @@ public class Main {
         System.out.println("------------------------------------------");     
         System.out.println(" 6. Mostrar el listado de fechas por fanatismo de mayor a menor (reversed).");
 //        6. Mostrar el listado de fechas por fanatismo de mayor a menor (reversed). 
-        festividades.sort(comPorFan);
+        festividades.sort(comPorFanReversed);
         Collections.reverse(festividades);
         for (FechaFestiva festividad : festividades) {
             System.out.println(festividad);
@@ -91,7 +93,30 @@ public class Main {
         System.out.println("------------------------------------------");     
         System.out.println(" 7. Mostrar ordenado por mes.");    
 //        7. Mostrar ordenado por mes.
-        festividades.sort(comPormes);
+        festividades.sort(comPorMes);
+        for (FechaFestiva festividad : festividades) {
+            System.out.println(festividad);
+        }
+        
+        
+        System.out.println("------------------------------------------");     
+        System.out.println(" 8. Mostrar ordenado por mes y día (Utilizando andThen)");    
+//        8. Mostrar ordenado por mes y día (Utilizando andThen).
+        
+        festividades.sort(comPOrDiaYMes);
+        for (FechaFestiva festividad : festividades) {
+            System.out.println(festividad);
+        }
+        
+        System.out.println("------------------------------------------");     
+        System.out.println(" 9. DIFICIL: Mostrar el listado ordenado por fanatismo (ascendente) y nombre (decente) ");    
+//        9. DIFICIL: Mostrar el listado ordenado por fanatismo (ascendente) y nombre (decente).
+
+        Comparator<FechaFestiva> comPorFan = new ComparadorPorFanatismo().reversed();
+        
+        Comparator<FechaFestiva> comPorNombreReversed = comPorNombre.reversed();
+        Comparator<FechaFestiva> comPorFanAscNombreDesc = comPorFan.thenComparing(comPorNombreReversed);
+        festividades.sort(comPorFanAscNombreDesc);
         for (FechaFestiva festividad : festividades) {
             System.out.println(festividad);
         }
