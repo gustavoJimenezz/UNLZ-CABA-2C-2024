@@ -2,10 +2,7 @@ package comparators;
 
 import java.util.Comparator;
 
-import modelos.FechaFestiva;
-
-//1. MES
-//Usando if anidados para llegar al resultado. 
+import models.FechaFestiva;
 
 public class ComparadorPorMes implements Comparator<FechaFestiva>{
 

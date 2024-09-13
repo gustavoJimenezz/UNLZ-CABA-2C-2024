@@ -2,10 +2,7 @@ package comparators;
 
 import java.util.Comparator;
 
-import modelos.FechaFestiva;
-
-//3. NOMBRE
-//Utilizar el metodo compareTo de los String para poder armarlo
+import models.FechaFestiva;
 
 public class ComparadorPorNombre implements Comparator<FechaFestiva>{
 
