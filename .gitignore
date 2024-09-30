@@ -1,0 +1,12 @@
+# Visual Studio
+.vs/
+*.sln.ide
+*.suo
+*.user
+*.userosscache
+*.sln.cache
+
+# Temporary files
+*.tmp
+*.log
+*.swp
